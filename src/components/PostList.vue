@@ -17,7 +17,9 @@ export default {
     async getPost() {
       try {
         await this.$http
-          .get(`http://127.0.0.1:8000/b/c`) // TODO: find out the api from django
+          .get(
+            `https://www.google.com/alerts/feeds/05410634571818650305/14782000416455298312`
+          ) // TODO: find out the api from django
           .then((response) => {
             this.posts = response.data;
           });
@@ -40,6 +42,9 @@ export default {
     <h1>Post App</h1>
     <div class="list">
       <ul class="list_content">
+        {{
+          posts
+        }}
         <li v-for="post in posts" :key="post.id">
           <h4>{{ post.title }}</h4>
           <h4>{{ post.slug }}</h4>
